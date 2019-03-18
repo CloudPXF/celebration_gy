@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>热烈庆祝广东药科大学建校60周年</title>
+    <!--指定IE和Chrome使用最新版本渲染当前页面-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <!--定义移动端的窗口：宽度是设备屏幕的高度、初始缩放比例为1、不允许用户手动缩放-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/jquery-weui.css">
+    <link rel="stylesheet" href="css/weui.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/css/swiper.css">
+    <script>if(typeof window.wView !== "undefined"){ window.wView.allowsInlineMediaPlayback = "YES"; window.wView.mediaPlaybackRequiresUserAction = "NO";}</script>
+</head>
+<body>
+    <div class="index">
+        <div class="background"></div>
+        <div onclick="toggleMusic()" class="music"><audio autoplay id="audio" style="display: none" src="images/bgm.mp3"></audio></div>
+        <div class="choose-page" style="display: block">
+            <div class="choose-logo"><img src="images/logo_2.png"></div>
+            <div class="choose-btn-view">
+                <div onclick="chooseIdentify(0)" class="choose-btn">学&emsp;生</div>
+                <div onclick="chooseIdentify(1)" class="choose-btn" style="margin-top:17px;">教职工</div>
+            </div>
+        </div>
+        <div class="input-page" style="display: none">
+            <div class="choose-logo"><img src="images/logo_2.png"></div>
+            <div class="form-box">
+                <div class="input-box"><input id="name" placeholder="姓名"></div>
+                <div class="input-box input-student"><input id="grade" placeholder="年级"></div>
+                <div class="input-box input-student"><input id="academy" placeholder="学院"></div>
+                <div class="input-box input-student"><input id="major" placeholder="专业"></div>
+                <div class="input-box input-teacher"><input id="year" placeholder="入职年份"></div>
+                <div class="input-box input-teacher"><input id="organiazation" placeholder="单位"></div>
+                <div class="input-box"><input id="celebration" maxlength="57" placeholder="对母校的祝福"></div>
+                <div class="swiper-box">
+                    <img src="images/left.png" class="swiper-box-left">
+                    <img src="images/right.png" class="swiper-box-right">
+                    <div class="swiper-box-title">左右滑动 挑选照片</div>
+                    <div class="swiper-containner">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"><img class="choose-img" src="images/img/01.jpg"></div>
+                            <div class="swiper-slide"><img class="choose-img" src="images/img/02.jpg"></div>
+                            <div class="swiper-slide"><img class="choose-img" src="images/img/03.jpg"></div>
+                            <div class="swiper-slide"><img class="choose-img" src="images/img/04.jpg"></div>
+                            <div class="swiper-slide"><img class="choose-img" src="images/img/05.jpg"></div>
+                            <div class="swiper-slide"><img class="choose-img" src="images/img/06.jpg"></div>
+                            <div class="swiper-slide"><img class="choose-img" src="images/img/07.jpg"></div>
+                            <div class="swiper-slide"><img class="choose-img" src="images/img/08.jpg"></div>
+                            <div class="swiper-slide"><img class="choose-img" src="images/img/09.jpg"></div>
+                            <div class="swiper-slide"><img class="choose-img" src="images/img/10.jpg"></div>
+                            <div class="swiper-slide"><img class="choose-img" src="images/img/11.jpg"></div>
+                            <div class="swiper-slide"><img class="choose-img" src="images/img/12.jpg"></div>
+                            <div class="swiper-slide"><img class="choose-img" src="images/img/13.jpg"></div>
+                            <div class="swiper-slide"><img class="choose-img" src="images/img/14.jpg"></div>
+                            <div class="swiper-slide"><img class="choose-img" src="images/img/15.jpg"></div>
+                            <div class="swiper-slide"><img class="choose-img" src="images/img/16.jpg"></div>
+                            <div class="swiper-slide"><img class="choose-img" src="images/img/17.jpg"></div>
+                            <div class="swiper-slide"><img class="choose-img" src="images/img/18.jpg"></div>
+                            <div class="swiper-slide"><img class="choose-img" src="images/img/19.jpg"></div>
+                            <div class="swiper-slide"><img class="choose-img" src="images/img/20.jpg"></div>
+                            <div class="swiper-slide"><img class="choose-img" src="images/img/21.jpg"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div onclick="generatePic()" class="submit-btn-view">
+                <div class="submit-btn">提交祝福 生成海报</div>
+            </div>
+        </div>
+        <div class="generation-page" style="display: none">
+            <div class="generation-logo"><img src="images/logo_2.png"></div>
+            <div class="generation-box">
+                <div class="generation-box-img"><img id="generateImg" src="images/bg.png"></div>
+                <div class="generation-box-title">
+                    <div><img src="images/name.png" style="width: 198px;height: 46px;margin-top: 8px;margin-left: auto;margin-right: auto;"></div>
+                    <div><img src="images/text.png" style="width: 145px;height: 16px;margin-top: 13px;margin-left: auto;margin-right: auto;"></div>
+                </div>
+                <div class="generation-box-content">
+                    <div class="generation-box-content-text">广东药科大学:</div>
+                    <div>
+                        <div class="generation-box-content-text">&emsp;</div>
+                        <div class="generation-box-content-text">&emsp;</div>
+                        <div class="generation-box-content-text">&emsp;</div>
+                        <div class="generation-box-content-text" id="generationName" style="text-align: right">学院（专业年级）名字</div>
+                        <div class="generation-box-content-abo"></div>
+                    </div>
+                </div>
+                <img style="position: absolute;left: 28px;bottom: 19px;width: 138px;height: 139px;" src="images/icon_logo.png">
+            </div>
+            <div class="generation-qrcode">
+                <img style="width: 81px;height: 20px;margin-right: 11px;margin-left: auto;" src="images/text_left.png">
+                <img style="width: 71px;height: 71px;" src="images/qrcode.png">
+                <img style="width: 81px;height: 20px;margin-right: auto;margin-left: 11px;" src="images/text_right.png">
+            </div>
+            <div class="share-top" style="display: none">
+                <div class="share-top-img"><img src="images/share_lead.png"></div>
+                <div class="share-top-text">分享对母校的祝福</div>
+            </div>
+            <div class="share-bottom" style="display: block">识别二维码进入校庆专题写祝福</div>
+            <img src="" id="shareImg" style="display: none;width: 100%;height: 100%;z-index: 9;position: absolute;top: 0;">
+        </div>
+    </div>
+<script src="js/jquery-2.1.4.js"></script>
+<script src="js/common.js"></script>
+<script src="js/jweixin-1.2.0.js"></script>
+<script src="js/jquery-weui.js"></script>
+<script src="js/html2canvas.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/js/swiper.js"></script>
+<script>
+    var mySwiper;
+    var currentIdentify;
+    window.onload = function () {
+        getCount();
+        setJSAPI();
+    }
+    function autoPlayAudio() {
+        var audio = document.getElementById("audio");
+        audio.playbackRate=1;
+        audio.play();
+        document.addEventListener("WeixinJSBridgeReady", function () {
+            audio.play();
+        }, false);
+    }
+    autoPlayAudio();
+    $("#audio")[0].onloadstart = function () {
+        autoPlayAudio();
+    }
+    function toggleMusic() {
+        if($("#audio")[0].paused) {
+            $("#audio")[0].play();
+        }else {
+            $("#audio")[0].pause();
+        }
+    }
+    function chooseIdentify(identify) {
+        $(".choose-page").hide();
+        $(".input-page").fadeIn();
+        currentIdentify = identify;
+        if(identify == 0) {
+            $(".input-student").show();
+            $(".input-teacher").hide();
+        }else {
+            $(".input-student").hide();
+            $(".input-teacher").show();
+        }
+        mySwiper = new Swiper(".swiper-containner", {
+            // autoplay: 1000,
+        })
+        // console.log(mySwiper.activeIndex);
+    }
+    function generatePic() {
+        if($("#celebration").val() && $("#name").val()) {
+            $(".input-page").hide();
+            $(".generation-page").show();
+
+            $("#generateImg")[0].src = $(".choose-img")[mySwiper.activeIndex].src;
+            $(".generation-box-content-abo").html($("#celebration").val());
+            if(currentIdentify == 0) {
+                $("#generationName").html($("#academy").val() + $("#major").val() + $("#grade").val() + $("#name").val());
+            }else if(currentIdentify == 1) {
+                $("#generationName").html($("#organiazation").val() + $("#year").val() + $("#name").val());
+            }
+            $.showLoading("生成中")
+            html2canvas($(".generation-page")[0], {
+                "backgroundColor": "rgba(255,255,255,1)"
+            }).then(function(canvas) {
+                document.body.appendChild(canvas)
+                console.log(canvas);
+                var src = canvas.toDataURL("image/png");
+                // setJSAPI(src);
+                if(src) {
+                    $("#shareImg")[0].src = src;
+                    $.hideLoading();
+                    $("#shareImg").show();
+                    $(".share-bottom").fadeOut();
+                    $(".share-top").fadeIn();
+                    $(".music").css("top","70px");
+                    $("#shareImg").load(function () {
+                        canvas.remove();
+                    });
+                }else {
+                    $.hideLoading();
+                    $.alert("生成失败");
+                }
+                submitInfo();
+                // console.log(src);
+            });
+        }else {
+            $.alert("请填写完相关信息")
+        }
+
+    }
+    function submitInfo() {
+        var name = $("#name").val();
+        var level = $("#grade").val();
+        var college = $("#academy").val();
+        var profession = $("#major").val();
+        var blessing = $("#celebration").val();
+        var type = "";
+        if(currentIdentify == 0) {
+            type = 10;
+        }else {
+            type = 20;
+        }
+        $.ajax({
+            type: "post",
+            url: "http://gyh5.bandu.tv/sys_demo/customer/share_history/submitInfo",
+            data: {
+                sh_type: type,
+                sh_name: name,
+                sh_level: level,
+                sh_college: college,
+                sh_profession: profession,
+                sh_blessing: blessing
+            },
+            async: false,
+            cache: false,
+            success: function (res) {
+                if(!res.errCode) {
+                    setCookie("celebration_num",res.count);
+                    console.log(res.count);
+                }
+            }
+        })
+    }
+</script>
+</body>
+</html>
